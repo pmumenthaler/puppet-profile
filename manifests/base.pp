@@ -1,5 +1,7 @@
 class profile::base {
-  include ntp
+  class { '::ntp':
+    servers => hiera('ntp::servers')
+  }
   include fail2ban
   class { 'timezone':
     timezone => 'Europe/Zurich',
