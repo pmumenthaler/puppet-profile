@@ -6,6 +6,11 @@ class profile::base {
   class { 'timezone':
     timezone => 'Europe/Zurich',
   }
+
+  service {'puppet':
+    ensure => running;
+  }
+ 
   file { '/etc/puppetlabs/puppet/puppet.conf':
     ensure  => file,
     content => epp('profile/puppet.conf.epp'),
