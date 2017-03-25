@@ -5,8 +5,8 @@
 # - https://docs.puppetlabs.com/puppet/latest/reference/config_file_main.html
 # - https://docs.puppetlabs.com/puppet/latest/reference/configuration.html
 [main]
-certname = <%= $puppetmaster %>
-server = <%= $fqdn %>
+server = <%= $puppetmaster %>
+certname = <%= $facts[fqdn] %>
 environment = production
 runinterval = 1h
 
