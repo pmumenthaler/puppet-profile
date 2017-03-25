@@ -1,8 +1,4 @@
-class profile::base (
-  $puppetmaster = undef
-)
-
-  {
+class profile::base {
 
   class { '::ntp':
     servers => hiera('ntp::servers')
@@ -15,6 +11,7 @@ class profile::base (
   service {'puppet':
     ensure => running;
   }
+  $puppetmaster = hiera('puppetmaster')
   file { '/etc/puppetlabs/puppet/puppet.conf':
     ensure  => file,
     content => epp('profile/puppet.conf.epp'),
