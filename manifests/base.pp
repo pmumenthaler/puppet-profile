@@ -8,7 +8,7 @@ class profile::base {
   }
   file { '/etc/puppetlabs/puppet/puppet.conf':
     ensure  => file,
-    content => epp('profile/base/puppet.conf.epp'),
+    content => epp('profile/puppet.conf.epp'),
   } ~> Service['puppet']
 
 }
