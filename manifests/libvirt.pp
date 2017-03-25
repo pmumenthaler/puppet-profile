@@ -3,7 +3,7 @@ class profile::libvirt {
     ensure => latest;
 
   }
-  package {'libvirtd':
+  service {'libvirtd':
     ensure => running;
   } 
 
