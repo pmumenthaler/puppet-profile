@@ -9,7 +9,8 @@ class profile::base {
   }
 
   service {'puppet':
-    ensure => running;
+    ensure => running,
+    enable => true;
   }
   $puppetmaster = hiera('puppetmaster')
   file { '/etc/puppetlabs/puppet/puppet.conf':
