@@ -7,4 +7,7 @@ class profile::libvirt {
     ensure => running;
   } 
 
+  package {'libvirt-daemon-kvm':
+    ensure => latest;
+  }
 }
