@@ -1,9 +1,11 @@
 class profile::base {
+  
+  include fail2ban
+  include ssh
 
   class { '::ntp':
     servers => hiera('ntp::servers')
   }
-  include fail2ban
   class { 'timezone':
     timezone => 'Europe/Zurich',
   }
