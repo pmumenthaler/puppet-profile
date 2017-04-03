@@ -15,9 +15,11 @@ class profile::base {
     enable => true;
   }
   $puppetmaster = hiera('puppetmaster')
-  file { '/etc/puppetlabs/puppet/puppet.conf':
-    ensure  => file,
-    content => epp('profile/puppet.conf.epp'),
-  } ~> Service['puppet']
+  if $puppetmaster != $fqdn {
+    file { '/etc/puppetlabs/puppet/puppet.conf':
+      ensure  => file,
+      content => epp('profile/puppet.conf.epp'),
+    } ~> Service['puppet']
+  }
 
 }
